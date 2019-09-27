@@ -1,0 +1,50 @@
+<% include partials/header %>
+
+	<title>Results Page</title>
+</head>
+<body>
+	<h1>Résultat(s)</h1>
+
+	<a href="/">Accueil</a>
+
+	<form action="/results" method="get">
+	    <input type="text" name="search" placeholder="Tapez votre film">
+	    <input type="submit">
+	</form>
+
+	<table border = "2">
+	  <tr>
+	    <th>Année</th>
+	    <th>Nom</th>
+	    <th>Couverture</th>
+	    <th>Lien</th>
+	  </tr>
+	  <% data['Search'].forEach(function(movie){ %>
+	  <tr>
+	    <% var imdb_url = 'https://www.imdb.com/title/' + movie['imdbID'] %>
+	    <td><%= movie['Year'] %></td>
+	    <td><%= movie['Title'] %></td>
+	    <td><img src="<%= movie['Poster'] %>" alt=""></td>
+	    <td><a href="<%= imdb_url %>">Voir sur OMDB</a></td>
+	  </tr>
+	  <% }) %>
+	</table>
+	<br/>
+
+	<style type="text/css">
+		h1 {
+		  color: green;	  
+		}
+		body {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+		form {
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		</style>
+
+</body>
+</html>

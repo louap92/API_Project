@@ -1,0 +1,27 @@
+<% include partials/header %>
+
+</head>
+<body>
+	<h1>Recherche de film</h1>
+
+	<form action="/results" method="get">
+	    <input type="text" name="search" placeholder="Tapez votre film">
+	    <input type="submit">
+	</form>
+
+	<style type="text/css">
+		h1 {
+		  color: red;	
+		  margin-top: 250px;  
+		}
+		body {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+		form {
+			margin-top: 30px;
+		}
+		</style>
+</body>
+</html>
